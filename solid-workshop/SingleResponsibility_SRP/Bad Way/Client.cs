@@ -85,7 +85,6 @@ namespace solid_workshop.SingleResponsibility_SRP.Bad_Way
 
         }
 
-
         public static void Validate(string? value, string mask)
         {
             var checkedValue = string.IsNullOrEmpty(value) ? string.Empty : value;

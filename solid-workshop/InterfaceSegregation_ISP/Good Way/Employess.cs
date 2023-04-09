@@ -1,6 +1,6 @@
 ﻿namespace solid_workshop.InterfaceSegregation__ISP_.Good_Way
 {
-    public class ProjectManager : ILead
+    public class ProjectManager : IManager
     {
         public void CreateTask()
         {
@@ -13,7 +13,7 @@
         }
     }
 
-    public class TeamLead : ILead, IProgrammer
+    public class TeamLead : IManager, IProgrammer
     {
         public void CreateTask()
         {

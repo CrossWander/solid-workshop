@@ -33,6 +33,8 @@
         }
     }
 
+    // This breaks the Liskov substituion principle because if we call the WriteFile() method
+    // then it will throw NotImplementedException.
     public class RegularDataFileUser : AccessDataFile
     {
         public override void ReadFile()
