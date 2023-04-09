@@ -1,8 +1,7 @@
 ﻿using FastMember;
 using Microsoft.Data.SqlClient;
-using solid_workshop.SingleResponsibility_SRP.Good_Way.DTO;
 
-namespace solid_workshop.SingleResponsibility_SRP.Good_Way
+namespace solid_workshop.SingleResponsibility_SRP.DbHandler
 {
     internal class DbHandler : IDbHandler
     {

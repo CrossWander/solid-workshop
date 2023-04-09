@@ -1,30 +1,15 @@
-﻿using solid_workshop.SingleResponsibility_SRP.DbHandler;
-
-namespace solid_workshop.SingleResponsibility_SRP.Good_Way
+﻿namespace solid_workshop.DependencyInversion_DIP.Bad_Way
 {
-    internal class ClientRepository : IClientRepository
+    public class ClientRepository
     {
-        private readonly IDbHandler _dbHandler;
+        private readonly DbHandler _dbHandler;
 
-        public ClientRepository(IDbHandler dbHandler)
+        public ClientRepository(DbHandler dbHandler)
         {
             _dbHandler = dbHandler;
         }
 
-        public async Task<bool> CheckExistsClientAsync(DTO.Client client)
-        {
-            var sql = @"SELECT TOP(1) *
-                        FROM dto.cat_client
-                        WHERE first_name = FirstName
-                            AND second_name = SecondName
-                            AND middle_name = MiddleName";
-
-            var result = await _dbHandler.GetCommandAsync<DTO.Client> (sql, new { client.FirstName, client.SecondName, client.MiddleName });
-
-            return result != null;
-        }
-
-        public async Task<long> CreateClientAsync(DTO.Client client)
+        public async Task<long> CreateAsync(Client client)
         {
             var sql = @"INSERT INTO dto.cat_client(
                                     first_name, 
@@ -43,7 +28,7 @@ namespace solid_workshop.SingleResponsibility_SRP.Good_Way
 
                                 SELECT SCOPE_IDENTITY()";
 
-            var result = await _dbHandler.CreateCommand(sql, 
+            var result = await _dbHandler.CreateCommand(sql,
                 new { client.FirstName, client.SecondName, client.MiddleName, client.PhoneNumber, client.EmailAddress, client.BirthDate });
 
             return result;

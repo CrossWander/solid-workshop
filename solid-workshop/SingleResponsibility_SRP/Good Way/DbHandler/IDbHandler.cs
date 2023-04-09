@@ -1,6 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 
-namespace solid_workshop.SingleResponsibility_SRP.Good_Way.DTO
+namespace solid_workshop.SingleResponsibility_SRP.DbHandler
 {
     internal interface IDbHandler
     {

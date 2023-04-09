@@ -1,8 +1,6 @@
-﻿using solid_workshop.SingleResponsibility_SRP.DbHandler;
-
-namespace solid_workshop.SingleResponsibility_SRP.Good_Way
+﻿namespace solid_workshop.DependencyInversion_DIP.Good_Way
 {
-    internal class ClientRepository : IClientRepository
+    public class ClientRepository : IClientRepository
     {
         private readonly IDbHandler _dbHandler;
 
@@ -11,20 +9,7 @@ namespace solid_workshop.SingleResponsibility_SRP.Good_Way
             _dbHandler = dbHandler;
         }
 
-        public async Task<bool> CheckExistsClientAsync(DTO.Client client)
-        {
-            var sql = @"SELECT TOP(1) *
-                        FROM dto.cat_client
-                        WHERE first_name = FirstName
-                            AND second_name = SecondName
-                            AND middle_name = MiddleName";
-
-            var result = await _dbHandler.GetCommandAsync<DTO.Client> (sql, new { client.FirstName, client.SecondName, client.MiddleName });
-
-            return result != null;
-        }
-
-        public async Task<long> CreateClientAsync(DTO.Client client)
+        public async Task<long> CreateAsync(Client client)
         {
             var sql = @"INSERT INTO dto.cat_client(
                                     first_name, 

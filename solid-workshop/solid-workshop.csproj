@@ -9,17 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DependencyInversion %28DIP%29\Bad Way\" />
-    <Folder Include="DependencyInversion %28DIP%29\Good Way\" />
-    <Folder Include="InterfaceSegregation %28ISP%29\Bad Way\" />
-    <Folder Include="InterfaceSegregation %28ISP%29\Good Way\" />
-    <Folder Include="Liskov %28LSP%29\Bad Way\" />
-    <Folder Include="Liskov %28LSP%29\Good Way\" />
-    <Folder Include="OpenClosed %28OCP%29\Bad Way\" />
-    <Folder Include="OpenClosed %28OCP%29\Good Way\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="FastMember" Version="1.5.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
   </ItemGroup>
